@@ -1,0 +1,50 @@
+<VirtualHost *:80>
+        #ServerName www.example.com
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        ServerName VAR_DOMINIO
+        Redirect permanent / https://VAR_DOMINIO/
+
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+
+<Directory “/var/www/html”>
+AllowOverride All
+</Directory>
+
+<VirtualHost *:443>
+DocumentRoot /var/www/html
+ServerName VAR_DOMINIO
+SSLEngine on
+#SSLCertificateFile /etc/apache2/ssl/VAR_DOMINIO.crt
+#SSLCertificateKeyFile /etc/apache2/ssl/VAR_DOMINIO.key
+#SSLCertificateChainFile /etc/apache2/ssl/certificate.ca.crt
+
+SSLCertificateFile /etc/ssl/private/VAR_DOMINIO.crt
+SSLCertificateKeyFile /etc/ssl/private/VAR_DOMINIO.key
+SSLCertificateChainFile /etc/ssl/private/certificate.ca.crt
+
+
+
+# Esto es necesario para activar las URL amigables
+<Directory /var/www/html>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+</Directory>
+
+
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerName VAR_DOMINIO
+        Redirect permanent / https://VAR_DOMINIO/
+</VirtualHost>
+

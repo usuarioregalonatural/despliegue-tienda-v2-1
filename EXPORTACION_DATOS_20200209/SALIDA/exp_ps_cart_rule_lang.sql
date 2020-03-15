@@ -1,0 +1,13 @@
+USE regalonatural; DELETE FROM regalonatural.ps_cart_rule_lang;
+INSERT INTO `ps_cart_rule_lang` VALUES (1,5,'Cupon Registro');
+INSERT INTO `ps_cart_rule_lang` VALUES (2,5,'Cupon Boletín');
+INSERT INTO `ps_cart_rule_lang` VALUES (3,5,'+700 amigos');
+INSERT INTO `ps_cart_rule_lang` VALUES (4,5,'Descuento Fidelidad');
+INSERT INTO `ps_cart_rule_lang` VALUES (5,5,'Descuento amigo');
+INSERT INTO `ps_cart_rule_lang` VALUES (6,5,'Descuento amigo');
+INSERT INTO `ps_cart_rule_lang` VALUES (7,5,'Bono-LPerez');
+INSERT INTO `ps_cart_rule_lang` VALUES (8,5,'DTO-GURENA');
+INSERT INTO `ps_cart_rule_lang` VALUES (9,5,'Descuento temporal 6%');
+INSERT INTO `ps_cart_rule_lang` VALUES (10,5,'Bono Transporte');
+INSERT INTO `ps_cart_rule_lang` VALUES (11,5,'Dto Aritz');
+INSERT INTO `ps_cart_rule_lang` VALUES (12,5,'Descuento Tabatha');

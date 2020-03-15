@@ -1,0 +1,7 @@
+use regalonatural;
+update regalonatural.ps_configuration set value=0 where name='PS_SSL_ENABLED';
+update regalonatural.ps_configuration set value=0 where name='PS_SSL_ENABLED_EVERYWHERE';
+update regalonatural.ps_shop_url set domain='VAR_DOMINIO', domain_ssl='VAR_DOMINIO';
+update regalonatural.ps_configuration set value='VAR_DOMINIO' where name='PS_SHOP_DOMAIN';
+update regalonatural.ps_configuration set value='VAR_DOMINIO' where name='PS_SHOP_DOMAIN_SSL';
+

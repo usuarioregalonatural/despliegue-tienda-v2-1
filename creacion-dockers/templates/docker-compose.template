@@ -1,0 +1,64 @@
+version: "3.1"
+services:
+    nginx-proxy:
+        image: vicsoft01/vic-nginx-proxy:1.1
+        container_name: vic-nginx-proxy
+        ports:
+          - "80:80"
+        volumes:
+          - /var/run/docker.sock:/tmp/docker.sock:ro
+          - ./certs:/etc/nginx/certs
+        depends_on:
+          - www
+    www:
+        image: VAR_IMAGEN_BASE
+        container_name: tienda-web
+        ports:
+            - 8050:80
+            - 443:443
+        volumes:
+            - VAR_RUTA_WEB:/var/www/html/
+        environment:
+            - VIRTUAL_HOST=www.VAR_DOMINIO_TIENDA,VAR_DOMINIO_TIENDA
+        links:
+            - db:db
+        networks:
+            - default
+    db:
+        image: mysql:5.7
+        container_name: VAR_CONT_MYSQL
+        ports:
+            - "33060:3306"
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_USER: victor
+            MYSQL_PASSWORD: vmsn2004
+            MYSQL_ROOT_PASSWORD: vmsn2004
+        volumes:
+            - VAR_RUTA_BBDD:/var/lib/mysql
+
+        networks:
+            - default
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: tienda-phpMyAdmin
+        links:
+            - db:db
+        ports:
+            - 8000:80
+        environment:
+            MYSQL_USER: victor
+            MYSQL_PASSWORD: vmsn2004
+            MYSQL_ROOT_PASSWORD: vmsn2004
+        networks:
+            - default
+    imagenes:
+        image: VAR_IMAGEN_BASE
+        container_name: tienda-imagenes
+        ports:
+            - 8055:80
+        volumes:
+            - VAR_RUTA_IMAGENES:/var/www/html/
+        networks:
+            - default
+ 

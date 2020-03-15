@@ -1,0 +1,2 @@
+USE regalonatural; DELETE FROM regalonatural.ps_order_slip;
+INSERT INTO `ps_order_slip` VALUES (1,1.000000,125,177,9.980000,9.984000,0.000000,0.000000,0,9.98,0.00,0,0,'2019-09-22 10:47:36','2019-09-22 10:47:36');

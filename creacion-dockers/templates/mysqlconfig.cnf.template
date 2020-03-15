@@ -1,0 +1,5 @@
+[client]
+user = VAR_WEB_USER
+password = VAR_PASS_USER
+host = localhost
+

@@ -1,0 +1,1 @@
+cat VAR_FILE_BCKSQL_REGALONATURAL | docker exec -i VAR_CONT_MYSQL /usr/bin/mysql -u root --password=vmsn2004 regalonatural

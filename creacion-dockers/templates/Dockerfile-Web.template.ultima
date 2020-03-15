@@ -1,0 +1,30 @@
+#FROM vicsoft01/ubuntu-apache-php-mysql-prestashop.1.7.3.2:1.0
+#FROM vicsoft01/ubuntu-apache-php-mysql:1.1
+#FROM vicsoft01/ubuntu18.04-apache2.2-php7.3.11:latest
+FROM VAR_IMAGEN_BASE_WWW
+
+MAINTAINER VICSOFT
+
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
+
+RUN apt-get update && apt-get upgrade -y
+
+COPY ./000-default.conf /etc/apache2/sites-available
+COPY ./default-ssl.conf /etc/apache2/sites-available
+COPY ./fqdn.conf /etc/apache2/conf-available
+COPY ./php.ini /etc/php/7.3/apache2
+COPY ./apache2.conf /etc/apache2
+
+
+RUN a2enmod rewrite
+
+EXPOSE 80
+
+VAR_SSLEXPOSE 443
+
+COPY ./ejecuta.sh /
+RUN chmod 700 /ejecuta.sh
+CMD [ "/ejecuta.sh" ]
+

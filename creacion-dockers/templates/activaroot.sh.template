@@ -1,0 +1,1 @@
+docker exec VAR_CONT_MYSQL mysql -u root -pvmsn2004 -e "CREATE USER 'root'@'%' IDENTIFIED BY 'vmsn2004';grant all privileges on *.* to 'root'@'%' identified by 'vmsn2004' with grant option;FLUSH PRIVILEGES;create database regalonatural:"
