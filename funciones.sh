@@ -469,9 +469,11 @@ parsea_create_db_regalonatural () {
 }
 
 parsea_restore_db_regalonatural () {
- VAR_RUTA_WEB_SIN_BARRAS=`echo ${PROD_RUTA_WEB}|sed 's/\//\\\\\//g'`
- VAR_FILE_BCKSQL_REGALONATURAL="${VAR_RUTA_WEB_SIN_BARRAS}\/${SQL_BBDD}"
- echo "VAR_RUTA_WEB_SIN_BARRAS = ${VAR_RUTA_WEB_SIN_BARRAS}"
+ VAR_RUTA_BCK_MYSQL=`echo ${PROD_RUTA_BCK_MYSQL}|sed 's/\//\\\\\//g'`
+
+ #VAR_RUTA_WEB_SIN_BARRAS=`echo ${PROD_RUTA_WEB}|sed 's/\//\\\\\//g'`
+ VAR_FILE_BCKSQL_REGALONATURAL="${VAR_RUTA_BCK_MYSQL}\/${SQL_BBDD}"
+ echo "VAR_RUTA_BCK_MYSQL = ${VAR_RUTA_BCK_MYSQL}"
  echo "SQL_BBDD = ${SQL_BBDD}"
  echo "VAR_FILE_BCKSQL_REGALONATURAL= ${VAR_FILE_BCKSQL_REGALONATURAL}"
 
